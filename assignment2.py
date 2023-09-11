@@ -26,8 +26,8 @@ class Assignment2:
         part1 = year_str[:2] * n
 
         # Second part: Odd-positioned characters of text representation of year multiplied by "n"
-        odd_chars = ''.join(year_str[i] for i in range(0, len(year_str), 2))
-        part2 = ''.join(str(int(odd_char) * n) for odd_char in odd_chars)
+        odd_chars = [c for i, c in enumerate(year_str) if i % 2 == 1]
+        part2 = ''.join(str(int(c) * n) for c in odd_chars)
 
         # Return the modified year as a concatenated string
         return part1 + part2
